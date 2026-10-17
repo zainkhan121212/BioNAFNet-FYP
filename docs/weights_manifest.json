@@ -1,0 +1,28 @@
+[
+  {
+    "model": "student",
+    "source": "Student_Model/checkpoints/best.pth",
+    "asset": "student_ema.pth",
+    "bytes": 96085339,
+    "sha256": "ac8b524df81206e626ffa2f5815064ed50c17f9f5daf53affbec78cd1a01b1f3",
+    "epoch": 693,
+    "best_psnr": 25.092068151814903,
+    "parameters": 23969016,
+    "passes": 1,
+    "strict_load": true,
+    "cpu_forward": "1x3x32x48, finite output"
+  },
+  {
+    "model": "teacher",
+    "source": "Teacher_Model/checkpoints/best.pth",
+    "asset": "teacher_ema.pth",
+    "bytes": 617782971,
+    "sha256": "fdb82b737cbf7d9b26082ecc841748d15d690960f66f29ecb53146d089962f22",
+    "epoch": 476,
+    "best_psnr": 25.045717376385614,
+    "parameters": 154380888,
+    "passes": 2,
+    "strict_load": true,
+    "cpu_forward": "1x3x32x48, finite output"
+  }
+]

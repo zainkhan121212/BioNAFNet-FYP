@@ -1,0 +1,7 @@
+model,dataset,avg_psnr,avg_ssim,time_s
+Teacher,LOLv1,25.0457,0.8655,8.0
+Teacher,LOLv2_Real,27.9596,0.9092,32.5
+Teacher,LOLv2_Synthetic,26.2216,0.9457,23.0
+Student,LOLv1,25.0921,0.8517,4.2
+Student,LOLv2_Real,27.7854,0.8930,15.0
+Student,LOLv2_Synthetic,25.7527,0.9375,12.3

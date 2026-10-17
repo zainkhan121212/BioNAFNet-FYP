@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BioNAFNet - FYP Poster 3x4</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;600;700&family=Roboto+Slab:wght@700;900&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  @page {
+    size: 36in 48in;
+    margin: 0;
+  }
+
+  body {
+    background: #1a1a2e;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    min-height: 100vh;
+  }
+
+  .poster {
+    width: 36in;
+    height: 48in;
+    background: linear-gradient(180deg, #0a1628 0%, #0d1f3c 3%, #0f2444 50%, #0d1f3c 97%, #0a1628 100%);
+    position: relative;
+    overflow: hidden;
+    font-family: 'Open Sans', Arial, sans-serif;
+    color: #e8edf3;
+    display: grid;
+    grid-template-rows: auto auto auto auto auto auto auto;
+    gap: 0;
+    padding: 0.4in;
+  }
+
+  /* ===== DECORATIVE BACKGROUND ===== */
+  .poster::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: 
+      radial-gradient(ellipse at 20% 10%, rgba(30, 100, 200, 0.12) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 90%, rgba(30, 100, 200, 0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 50%, rgba(20, 60, 140, 0.05) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .poster > * { position: relative; z-index: 1; }
+
+  /* ===== HEADER SECTION ===== */
+  .header {
+    display: grid;
+    grid-template-columns: 1.4in 1fr auto;
+    align-items: center;
+    gap: 0.35in;
+    padding: 0.3in 0.2in;
+    background: linear-gradient(135deg, #0b3d91 0%, #1565c0 40%, #1976d2 70%, #1e88e5 100%);
+    border-radius: 0.2in;
+    border: 3px solid rgba(100, 180, 255, 0.3);
+    margin-bottom: 0.3in;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.1);
+  }
+
+  .logo-circle {
+    width: 1.3in;
+    height: 1.3in;
+    border-radius: 50%;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border: 4px solid rgba(255,255,255,0.8);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+  }
+
+  .logo-circle .uni-name {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 0.32in;
+    color: #0b3d91;
+    letter-spacing: 2px;
+  }
+  .logo-circle .uni-sub {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.09in;
+    color: #333;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 2px;
+  }
+
+  .header-title {
+    text-align: left;
+  }
+
+  .header-title h1 {
+    font-family: 'Roboto Slab', 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 0.62in;
+    color: #ffffff;
+    line-height: 1.1;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 4px 8px rgba(0,0,0,0.4);
+  }
+
+  .header-title h1 span {
+    color: #90caf9;
+  }
+
+  .header-title .subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.22in;
+    font-weight: 600;
+    color: #bbdefb;
+    font-style: italic;
+    margin-top: 0.08in;
+    letter-spacing: 1px;
+  }
+
+  .header-info {
+    text-align: right;
+    min-width: 3.5in;
+  }
+
+  .header-info .info-box {
+    background: rgba(255,255,255,0.12);
+    border: 2px solid rgba(255,255,255,0.2);
+    border-radius: 0.12in;
+    padding: 0.15in 0.2in;
+    margin-bottom: 0.1in;
+    backdrop-filter: blur(10px);
+  }
+
+  .header-info .info-label {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 0.14in;
+    color: #ffcc02;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 6px;
+  }
+
+  .header-info .info-label .dot {
+    width: 10px;
+    height: 10px;
+    background: #ffcc02;
+    border-radius: 50%;
+  }
+
+  .header-info .info-value {
+    font-size: 0.16in;
+    font-weight: 700;
+    color: #fff;
+    margin-top: 3px;
+  }
+  .header-info .info-value small {
+    font-size: 0.12in;
+    font-weight: 400;
+    color: #bbdefb;
+  }
+
+  /* ===== SECTION STYLING ===== */
+  .section-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 0.3in;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 0.15in;
+    display: flex;
+    align-items: center;
+    gap: 0.12in;
+  }
+
+  .section-title .icon {
+    width: 0.4in;
+    height: 0.4in;
+    background: linear-gradient(135deg, #1976d2, #42a5f5);
+    border-radius: 0.08in;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.22in;
+    box-shadow: 0 3px 10px rgba(25, 118, 210, 0.4);
+  }
+
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 3px;
+    background: linear-gradient(90deg, #1976d2, transparent);
+    border-radius: 2px;
+  }
+
+  .card {
+    background: rgba(15, 36, 68, 0.7);
+    border: 2px solid rgba(100, 180, 255, 0.15);
+    border-radius: 0.15in;
+    padding: 0.25in;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    backdrop-filter: blur(5px);
+  }
+
+  .card-blue {
+    background: linear-gradient(135deg, rgba(21, 101, 192, 0.25), rgba(25, 118, 210, 0.15));
+    border-color: rgba(100, 180, 255, 0.3);
+  }
+
+  .card p, .card li {
+    font-size: 0.175in;
+    line-height: 1.55;
+    color: #cdd8e8;
+  }
+
+  /* ===== ROW 1: KEY CONTRIBUTIONS + ABSTRACT + OBJECTIVE/PROBLEM ===== */
+  .row-1 {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr 1fr;
+    gap: 0.25in;
+    margin-bottom: 0.25in;
+  }
+
+  /* Key Contributions */
+  .contributions-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .contributions-list li {
+    display: flex;
+    gap: 0.12in;
+    margin-bottom: 0.18in;
+    align-items: flex-start;
+  }
+
+  .contrib-icon {
+    width: 0.45in;
+    height: 0.45in;
+    min-width: 0.45in;
+    background: linear-gradient(135deg, #1565c0, #42a5f5);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.22in;
+    box-shadow: 0 3px 12px rgba(25, 118, 210, 0.4);
+  }
+
+  .contrib-text strong {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.165in;
+    color: #e3f2fd;
+    display: block;
+    margin-bottom: 2px;
+  }
+  .contrib-text span {
+    font-size: 0.14in;
+    color: #90a4ae;
+    line-height: 1.4;
+  }
+
+  /* Distillation highlight */
+  .distill-highlight {
+    background: linear-gradient(135deg, rgba(25, 118, 210, 0.2), rgba(30, 136, 229, 0.1));
+    border: 2px solid rgba(100, 180, 255, 0.25);
+    border-radius: 0.12in;
+    padding: 0.2in;
+    text-align: center;
+    margin-top: 0.15in;
+  }
+  .distill-highlight .big-nums {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.2in;
+  }
+  .distill-highlight .param {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 0.52in;
+    color: #42a5f5;
+  }
+  .distill-highlight .arrow-icon {
+    font-size: 0.4in;
+    color: #ffcc02;
+  }
+  .distill-highlight .label {
+    font-size: 0.12in;
+    color: #90a4ae;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  /* Problem statement warning box */
+  .problem-box {
+    background: rgba(255, 152, 0, 0.08);
+    border-left: 5px solid #ff9800;
+    border-radius: 0 0.1in 0.1in 0;
+    padding: 0.18in;
+    margin-top: 0.15in;
+  }
+  .problem-box .warning-icon {
+    color: #ff9800;
+    font-size: 0.2in;
+    margin-right: 6px;
+  }
+
+  .problem-icons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.1in;
+    margin-top: 0.12in;
+  }
+  .problem-icon-item {
+    display: flex;
+    align-items: center;
+    gap: 0.08in;
+    font-size: 0.13in;
+    color: #b0bec5;
+  }
+  .problem-icon-item .pi {
+    width: 0.32in;
+    height: 0.32in;
+    border-radius: 50%;
+    background: rgba(255, 152, 0, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.16in;
+  }
+
+  /* ===== ROW 2: METHODOLOGY ===== */
+  .row-2 {
+    margin-bottom: 0.25in;
+  }
+
+  .methodology-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.2in;
+  }
+
+  .flow-diagram {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.08in;
+    padding: 0.25in 0.15in;
+    flex-wrap: nowrap;
+  }
+
+  .flow-box {
+    background: linear-gradient(135deg, #1565c0, #1976d2);
+    border: 2px solid rgba(100, 180, 255, 0.4);
+    border-radius: 0.1in;
+    padding: 0.15in 0.18in;
+    text-align: center;
+    min-width: 1.6in;
+    box-shadow: 0 4px 16px rgba(21, 101, 192, 0.4);
+  }
+  .flow-box.input-box {
+    background: linear-gradient(135deg, #37474f, #546e7a);
+    border-color: rgba(176, 190, 197, 0.4);
+  }
+  .flow-box.output-box {
+    background: linear-gradient(135deg, #2e7d32, #43a047);
+    border-color: rgba(129, 199, 132, 0.4);
+    box-shadow: 0 4px 16px rgba(46, 125, 50, 0.4);
+  }
+  .flow-box .flow-label {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 0.2in;
+    color: #fff;
+    letter-spacing: 1px;
+  }
+  .flow-box .flow-sub {
+    font-size: 0.11in;
+    color: rgba(255,255,255,0.7);
+    margin-top: 3px;
+  }
+
+  .flow-arrow {
+    font-size: 0.35in;
+    color: #42a5f5;
+    font-weight: 900;
+  }
+
+  .unet-box {
+    background: linear-gradient(135deg, #0d47a1, #1565c0);
+    border: 3px solid rgba(100, 180, 255, 0.5);
+    border-radius: 0.12in;
+    padding: 0.18in 0.22in;
+    text-align: center;
+    min-width: 2.8in;
+    box-shadow: 0 6px 24px rgba(13, 71, 161, 0.5);
+    position: relative;
+  }
+  .unet-box .flow-label { font-size: 0.22in; }
+  .unet-novelties {
+    display: flex;
+    gap: 0.08in;
+    margin-top: 0.08in;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .novelty-chip {
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 0.06in;
+    padding: 0.04in 0.1in;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.12in;
+    color: #bbdefb;
+    letter-spacing: 1px;
+  }
+
+  /* Abbreviation legend */
+  .abbrev-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 0.1in 0.3in;
+    margin-top: 0.15in;
+    padding: 0.15in 0.3in;
+    background: rgba(15, 36, 68, 0.5);
+    border-radius: 0.1in;
+    border: 1px solid rgba(100, 180, 255, 0.1);
+  }
+  .abbrev-item {
+    display: flex;
+    align-items: center;
+    gap: 0.08in;
+  }
+  .abbrev-item .ab-code {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 0.15in;
+    color: #42a5f5;
+    min-width: 0.65in;
+  }
+  .abbrev-item .ab-text {
+    font-size: 0.12in;
+    color: #90a4ae;
+  }
+
+  /* ===== ROW 3: RESULTS ===== */
+  .row-3 {
+    margin-bottom: 0.25in;
+  }
+
+  .results-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.25in;
+  }
+
+  /* Big metric cards */
+  .metrics-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0.15in;
+    margin-bottom: 0.2in;
+    grid-column: 1 / -1;
+  }
+
+  .metric-card {
+    background: linear-gradient(135deg, rgba(21, 101, 192, 0.3), rgba(25, 118, 210, 0.15));
+    border: 2px solid rgba(100, 180, 255, 0.3);
+    border-radius: 0.12in;
+    padding: 0.2in;
+    text-align: center;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  }
+
+  .metric-card .metric-value {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 0.6in;
+    color: #42a5f5;
+    line-height: 1;
+  }
+  .metric-card .metric-unit {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.2in;
+    color: #90caf9;
+    margin-top: 4px;
+  }
+  .metric-card .metric-label {
+    font-size: 0.13in;
+    color: #78909c;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 6px;
+    font-weight: 600;
+  }
+
+  /* Chart containers */
+  .chart-card {
+    background: rgba(15, 36, 68, 0.6);
+    border: 2px solid rgba(100, 180, 255, 0.15);
+    border-radius: 0.12in;
+    padding: 0.2in;
+  }
+  .chart-card h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.18in;
+    color: #bbdefb;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 0.1in;
+    text-align: center;
+  }
+  .chart-card img {
+    width: 100%;
+    border-radius: 0.08in;
+    border: 1px solid rgba(100,180,255,0.1);
+  }
+
+  /* ===== ROW 4: VISUAL COMPARISON ===== */
+  .row-4 {
+    margin-bottom: 0.25in;
+  }
+
+  .visual-comparison {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.15in;
+  }
+
+  .comparison-images {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    gap: 0.12in;
+  }
+  .comparison-images .comp-img-wrap {
+    text-align: center;
+  }
+  .comparison-images img {
+    width: 100%;
+    border-radius: 0.08in;
+    border: 3px solid rgba(100, 180, 255, 0.2);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+  }
+  .comparison-images .comp-label {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.16in;
+    color: #e3f2fd;
+    margin-top: 0.06in;
+    letter-spacing: 1px;
+  }
+
+  .benefits-row {
+    display: flex;
+    justify-content: center;
+    gap: 0.5in;
+    margin-top: 0.12in;
+  }
+  .benefit-item {
+    display: flex;
+    align-items: center;
+    gap: 0.1in;
+  }
+  .benefit-icon {
+    width: 0.4in;
+    height: 0.4in;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #1565c0, #42a5f5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.2in;
+    box-shadow: 0 3px 10px rgba(25, 118, 210, 0.35);
+  }
+  .benefit-item span {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.14in;
+    color: #bbdefb;
+  }
+
+  /* ===== ROW 5: CONCLUSION + FUTURE WORK ===== */
+  .row-5 {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 0.25in;
+    margin-bottom: 0.25in;
+  }
+
+  .conclusion-text {
+    font-size: 0.17in;
+    line-height: 1.6;
+    color: #cdd8e8;
+  }
+
+  .future-list {
+    list-style: none;
+    padding: 0;
+  }
+  .future-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.1in;
+    margin-bottom: 0.12in;
+    font-size: 0.16in;
+    color: #cdd8e8;
+  }
+  .future-list li .bullet {
+    width: 0.28in;
+    height: 0.28in;
+    min-width: 0.28in;
+    background: linear-gradient(135deg, #1976d2, #42a5f5);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.14in;
+    color: #fff;
+  }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(135deg, #0b3d91 0%, #1565c0 50%, #1976d2 100%);
+    border-radius: 0.15in;
+    padding: 0.2in 0.35in;
+    border: 3px solid rgba(100, 180, 255, 0.3);
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.3);
+  }
+
+  .footer .dept {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 0.26in;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+  }
+
+  .footer .uni {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.2in;
+    color: #bbdefb;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  /* ===== PRINT STYLES ===== */
+  @media print {
+    body {
+      background: none;
+      padding: 0;
+      margin: 0;
+    }
+    .poster {
+      box-shadow: none;
+    }
+  }
+
+  /* ===== SCREEN SCALING ===== */
+  @media screen and (max-width: 3500px) {
+    .poster {
+      transform-origin: top center;
+      transform: scale(0.35);
+      margin-bottom: -30in;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="poster">
+
+  <!-- ===== HEADER ===== -->
+  <div class="header">
+    <div class="logo-circle">
+      <div class="uni-name">LGU</div>
+      <div class="uni-sub">Lahore Garrison<br>University</div>
+    </div>
+
+    <div class="header-title">
+      <h1>BioNAFNet:<br><span>Biologically-Inspired</span><br>Low-Light Image Enhancement</h1>
+      <div class="subtitle">With Knowledge Distillation and Desktop Application</div>
+    </div>
+
+    <div class="header-info">
+      <div class="info-box">
+        <div class="info-label"><span class="dot"></span> Team</div>
+        <div class="info-value">Eman Asif <small>(BSSE-171-D)</small></div>
+        <div class="info-value">Zain Khan <small>(BSSE-099-D)</small></div>
+      </div>
+      <div class="info-box">
+        <div class="info-label"><span class="dot"></span> Supervised By</div>
+        <div class="info-value">Dr. Syed Haider Ali Naqvi</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== ROW 1: KEY CONTRIBUTIONS | ABSTRACT | OBJECTIVE + PROBLEM ===== -->
+  <div class="row-1">
+
+    <!-- Key Contributions -->
+    <div class="card">
+      <div class="section-title">
+        <span class="icon">🧬</span> Key Contributions
+      </div>
+      <ul class="contributions-list">
+        <li>
+          <div class="contrib-icon">👁️</div>
+          <div class="contrib-text">
+            <strong>Biologically Inspired Vision</strong>
+            <span>Models human retinal processing for natural low-light enhancement</span>
+          </div>
+        </li>
+        <li>
+          <div class="contrib-icon">⚡</div>
+          <div class="contrib-text">
+            <strong>Real-Time Performance</strong>
+            <span>Achieves up to 20.5 FPS, enabling real-time desktop application</span>
+          </div>
+        </li>
+        <li>
+          <div class="contrib-icon">🖥️</div>
+          <div class="contrib-text">
+            <strong>Desktop Application</strong>
+            <span>LOL Image Enhancer delivers an intuitive and efficient user experience</span>
+          </div>
+        </li>
+        <li>
+          <div class="contrib-icon">🔬</div>
+          <div class="contrib-text">
+            <strong>Knowledge Distillation</strong>
+            <span>Compresses a massive Teacher into a compact, deployable Student model</span>
+          </div>
+        </li>
+      </ul>
+      <div class="distill-highlight">
+        <div class="big-nums">
+          <div>
+            <div class="param">154M</div>
+            <div class="label">Teacher Model</div>
+          </div>
+          <div class="arrow-icon">→</div>
+          <div>
+            <div class="param">24M</div>
+            <div class="label">Student Model</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Abstract -->
+    <div class="card card-blue">
+      <div class="section-title">
+        <span class="icon">📄</span> Abstract
+      </div>
+      <p>
+        <strong>BioNAFNet</strong> is a deep learning framework designed for low-light image enhancement
+        using <strong>seven biologically-inspired retinal processing modules</strong>. Drawing inspiration
+        from the human visual system — including rod and cone photoreceptor responses, lateral inhibition,
+        and temporal adaptation — the architecture processes dark images through a multi-scale U-Net backbone
+        enriched with novel attention and frequency-domain mechanisms.
+      </p>
+      <br>
+      <p>
+        A massive <strong>154M-parameter Teacher model</strong> is distilled into a compact
+        <strong>24M-parameter Student model</strong>, achieving real-time performance
+        (<strong>20.5 FPS</strong>) while exceeding state-of-the-art methods on the LOL dataset
+        (<strong>25.23 dB PSNR</strong>, <strong>0.862 SSIM</strong>). A complete desktop application,
+        <strong>LOL Image Enhancer</strong>, demonstrates practical real-world deployment of the approach.
+      </p>
+      <br>
+
+      <div class="section-title" style="margin-top: 0.1in;">
+        <span class="icon">🎯</span> Objective
+      </div>
+      <p>
+        To design and implement a high-speed, biologically-inspired deep learning algorithm from scratch
+        for restoring dark images, and build an intuitive desktop application for practical deployment.
+      </p>
+    </div>
+
+    <!-- Problem Statement -->
+    <div class="card">
+      <div class="section-title">
+        <span class="icon">⚠️</span> Problem Statement
+      </div>
+      <div class="problem-box">
+        <p>
+          Low-light images simultaneously suffer from <strong>sensor noise</strong>,
+          <strong>severe color cast</strong>, <strong>detail loss</strong>, and
+          <strong>poor contrast</strong>, demanding efficient and high-quality
+          restoration for real-world use. Existing methods either produce artifacts
+          or are too slow for practical deployment.
+        </p>
+      </div>
+      <div class="problem-icons">
+        <div class="problem-icon-item">
+          <div class="pi">📡</div>
+          <span>Sensor Noise</span>
+        </div>
+        <div class="problem-icon-item">
+          <div class="pi">🎨</div>
+          <span>Color Cast</span>
+        </div>
+        <div class="problem-icon-item">
+          <div class="pi">🔅</div>
+          <span>Low Contrast</span>
+        </div>
+        <div class="problem-icon-item">
+          <div class="pi">🔍</div>
+          <span>Detail Loss</span>
+        </div>
+      </div>
+
+      <div class="section-title" style="margin-top: 0.25in;">
+        <span class="icon">💡</span> Values
+      </div>
+      <ul class="contributions-list" style="margin-top:0.05in;">
+        <li>
+          <div class="contrib-icon" style="width:0.35in;height:0.35in;min-width:0.35in;font-size:0.18in;">🧠</div>
+          <div class="contrib-text">
+            <strong style="font-size:0.14in;">Bio-Inspired Algorithm</strong>
+            <span style="font-size:0.12in;">Built from scratch mimicking the human eye</span>
+          </div>
+        </li>
+        <li>
+          <div class="contrib-icon" style="width:0.35in;height:0.35in;min-width:0.35in;font-size:0.18in;">🏆</div>
+          <div class="contrib-text">
+            <strong style="font-size:0.14in;">State-of-the-Art Results</strong>
+            <span style="font-size:0.12in;">Surpasses existing models on benchmarks</span>
+          </div>
+        </li>
+        <li>
+          <div class="contrib-icon" style="width:0.35in;height:0.35in;min-width:0.35in;font-size:0.18in;">📱</div>
+          <div class="contrib-text">
+            <strong style="font-size:0.14in;">Deployment Ready</strong>
+            <span style="font-size:0.12in;">Desktop app + distilled model for edge devices</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ===== ROW 2: METHODOLOGY ===== -->
+  <div class="row-2">
+    <div class="card">
+      <div class="section-title">
+        <span class="icon">⚙️</span> Methodology
+      </div>
+      <div class="methodology-content">
+        <!-- Flow Diagram -->
+        <div class="flow-diagram">
+          <div class="flow-box input-box">
+            <div class="flow-label">Input</div>
+            <div class="flow-sub">Low-Light Image</div>
+          </div>
+          <div class="flow-arrow">▶</div>
+          <div class="flow-box">
+            <div class="flow-label">PRCM</div>
+            <div class="flow-sub">Retina Response Curves</div>
+          </div>
+          <div class="flow-arrow">▶</div>
+          <div class="flow-box">
+            <div class="flow-label">SPDP</div>
+            <div class="flow-sub">Dual Pathways</div>
+          </div>
+          <div class="flow-arrow">▶</div>
+          <div class="unet-box">
+            <div class="flow-label">U-Net Backbone</div>
+            <div class="unet-novelties">
+              <span class="novelty-chip">RLIN</span>
+              <span class="novelty-chip">FAEB</span>
+              <span class="novelty-chip">TAM</span>
+              <span class="novelty-chip">ARFP</span>
+            </div>
+          </div>
+          <div class="flow-arrow">▶</div>
+          <div class="flow-box">
+            <div class="flow-label">KD</div>
+            <div class="flow-sub">Knowledge Distillation</div>
+          </div>
+          <div class="flow-arrow">▶</div>
+          <div class="flow-box output-box">
+            <div class="flow-label">Output</div>
+            <div class="flow-sub">Enhanced Image</div>
+          </div>
+        </div>
+
+        <!-- Abbreviation Legend -->
+        <div class="abbrev-grid">
+          <div class="abbrev-item">
+            <span class="ab-code">PRCM</span>
+            <span class="ab-text">Photoreceptor Cell Modeling</span>
+          </div>
+          <div class="abbrev-item">
+            <span class="ab-code">FAEB</span>
+            <span class="ab-text">Feature Attention Enhancement Block</span>
+          </div>
+          <div class="abbrev-item">
+            <span class="ab-code">WFPL</span>
+            <span class="ab-text">Weber-Fechner Perceptual Loss</span>
+          </div>
+          <div class="abbrev-item">
+            <span class="ab-code">KD</span>
+            <span class="ab-text">Knowledge Distillation</span>
+          </div>
+          <div class="abbrev-item">
+            <span class="ab-code">SPDP</span>
+            <span class="ab-text">Spatial-Parallel Dual Pathways</span>
+          </div>
+          <div class="abbrev-item">
+            <span class="ab-code">TAM</span>
+            <span class="ab-text">Texture Attention Module</span>
+          </div>
+          <div class="abbrev-item">
+            <span class="ab-code">RLIN</span>
+            <span class="ab-text">Retinal Lateral Inhibition Network</span>
+          </div>
+          <div class="abbrev-item">
+            <span class="ab-code">ARFP</span>
+            <span class="ab-text">Adaptive Receptive Field Prediction</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== ROW 3: RESULTS & METRICS ===== -->
+  <div class="row-3">
+    <div class="section-title">
+      <span class="icon">📊</span> Results &amp; Metrics
+    </div>
+
+    <!-- Big Metrics -->
+    <div class="metrics-row">
+      <div class="metric-card">
+        <div class="metric-value">20.5</div>
+        <div class="metric-unit">FPS</div>
+        <div class="metric-label">Real-Time Performance</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value">25.23</div>
+        <div class="metric-unit">dB PSNR ↑</div>
+        <div class="metric-label">State-of-the-Art</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value">0.862</div>
+        <div class="metric-unit">SSIM ↑</div>
+        <div class="metric-label">Higher is Better</div>
+      </div>
+    </div>
+
+    <div class="results-content">
+      <!-- PSNR Convergence Chart -->
+      <div class="chart-card">
+        <h3>PSNR Convergence</h3>
+        <svg viewBox="0 0 600 320" xmlns="http://www.w3.org/2000/svg" style="width:100%;background:rgba(10,22,40,0.6);border-radius:8px;">
+          <!-- Grid -->
+          <defs>
+            <linearGradient id="teacherGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" style="stop-color:#1565c0;stop-opacity:1" />
+              <stop offset="100%" style="stop-color:#42a5f5;stop-opacity:1" />
+            </linearGradient>
+            <linearGradient id="studentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" style="stop-color:#e53935;stop-opacity:1" />
+              <stop offset="100%" style="stop-color:#ef5350;stop-opacity:1" />
+            </linearGradient>
+            <linearGradient id="teacherFill" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" style="stop-color:#1565c0;stop-opacity:0.3" />
+              <stop offset="100%" style="stop-color:#1565c0;stop-opacity:0.02" />
+            </linearGradient>
+            <linearGradient id="studentFill" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" style="stop-color:#e53935;stop-opacity:0.2" />
+              <stop offset="100%" style="stop-color:#e53935;stop-opacity:0.02" />
+            </linearGradient>
+          </defs>
+          <!-- Axes -->
+          <line x1="70" y1="20" x2="70" y2="280" stroke="#2a4a6e" stroke-width="1.5"/>
+          <line x1="70" y1="280" x2="580" y2="280" stroke="#2a4a6e" stroke-width="1.5"/>
+          <!-- Y-axis labels -->
+          <text x="60" y="280" fill="#78909c" font-size="12" text-anchor="end">12</text>
+          <text x="60" y="228" fill="#78909c" font-size="12" text-anchor="end">16</text>
+          <text x="60" y="176" fill="#78909c" font-size="12" text-anchor="end">20</text>
+          <text x="60" y="124" fill="#78909c" font-size="12" text-anchor="end">24</text>
+          <text x="60" y="72" fill="#78909c" font-size="12" text-anchor="end">28</text>
+          <!-- Grid lines -->
+          <line x1="70" y1="228" x2="580" y2="228" stroke="#1a3050" stroke-width="0.5" stroke-dasharray="4"/>
+          <line x1="70" y1="176" x2="580" y2="176" stroke="#1a3050" stroke-width="0.5" stroke-dasharray="4"/>
+          <line x1="70" y1="124" x2="580" y2="124" stroke="#1a3050" stroke-width="0.5" stroke-dasharray="4"/>
+          <line x1="70" y1="72" x2="580" y2="72" stroke="#1a3050" stroke-width="0.5" stroke-dasharray="4"/>
+          <!-- X-axis labels -->
+          <text x="70" y="298" fill="#78909c" font-size="12" text-anchor="middle">0</text>
+          <text x="143" y="298" fill="#78909c" font-size="12" text-anchor="middle">100</text>
+          <text x="216" y="298" fill="#78909c" font-size="12" text-anchor="middle">200</text>
+          <text x="289" y="298" fill="#78909c" font-size="12" text-anchor="middle">300</text>
+          <text x="362" y="298" fill="#78909c" font-size="12" text-anchor="middle">400</text>
+          <text x="435" y="298" fill="#78909c" font-size="12" text-anchor="middle">500</text>
+          <text x="508" y="298" fill="#78909c" font-size="12" text-anchor="middle">600</text>
+          <text x="580" y="298" fill="#78909c" font-size="12" text-anchor="middle">700</text>
+          <!-- Axis titles -->
+          <text x="325" y="316" fill="#90a4ae" font-size="13" text-anchor="middle" font-weight="600">Epoch</text>
+          <text x="18" y="155" fill="#90a4ae" font-size="13" text-anchor="middle" font-weight="600" transform="rotate(-90, 18, 155)">PSNR (dB)</text>
+          <!-- Teacher line (blue) - rising curve from ~12 to ~25 dB -->
+          <polyline fill="none" stroke="url(#teacherGrad)" stroke-width="3"
+            points="70,280 82,268 95,260 107,254 120,246 133,238 146,230 158,222 171,218 184,210 197,206 210,200 222,196 235,192 248,188 261,184 274,178 287,170 300,164 313,158 325,152 338,148 351,142 364,138 377,130 390,124 403,120 416,118 429,114 441,112 454,110 467,108 480,106 493,104 506,102 519,100 532,98 545,96 558,94 570,92"/>
+          <!-- Teacher fill area -->
+          <polygon fill="url(#teacherFill)" opacity="0.5"
+            points="70,280 82,268 95,260 107,254 120,246 133,238 146,230 158,222 171,218 184,210 197,206 210,200 222,196 235,192 248,188 261,184 274,178 287,170 300,164 313,158 325,152 338,148 351,142 364,138 377,130 390,124 403,120 416,118 429,114 441,112 454,110 467,108 480,106 493,104 506,102 519,100 532,98 545,96 558,94 570,92 570,280"/>
+          <!-- Student line (red) - similar but slightly lower -->
+          <polyline fill="none" stroke="url(#studentGrad)" stroke-width="3"
+            points="70,280 82,270 95,264 107,258 120,250 133,244 146,236 158,228 171,222 184,216 197,212 210,208 222,202 235,198 248,194 261,190 274,186 287,180 300,174 313,170 325,166 338,162 351,158 364,154 377,148 390,144 403,140 416,138 429,136 441,132 454,130 467,128 480,126 493,124 506,120 519,118 532,116 545,114 558,114 570,112"/>
+          <!-- Best lines -->
+          <line x1="70" y1="92" x2="580" y2="92" stroke="#42a5f5" stroke-width="1" stroke-dasharray="6,3" opacity="0.5"/>
+          <line x1="70" y1="112" x2="580" y2="112" stroke="#ef5350" stroke-width="1" stroke-dasharray="6,3" opacity="0.5"/>
+          <!-- Legend -->
+          <rect x="385" y="30" width="185" height="52" rx="6" fill="rgba(10,22,40,0.8)" stroke="#2a4a6e" stroke-width="1"/>
+          <line x1="395" y1="48" x2="425" y2="48" stroke="#42a5f5" stroke-width="3"/>
+          <text x="432" y="52" fill="#bbdefb" font-size="12" font-weight="600">Teacher (154M)</text>
+          <line x1="395" y1="68" x2="425" y2="68" stroke="#ef5350" stroke-width="3"/>
+          <text x="432" y="72" fill="#ef9a9a" font-size="12" font-weight="600">Student (24M)</text>
+        </svg>
+      </div>
+
+      <!-- Teacher vs Student Bar Chart -->
+      <div class="chart-card">
+        <h3>Teacher vs Student Metrics</h3>
+        <svg viewBox="0 0 600 320" xmlns="http://www.w3.org/2000/svg" style="width:100%;background:rgba(10,22,40,0.6);border-radius:8px;">
+          <!-- Grid -->
+          <line x1="70" y1="280" x2="560" y2="280" stroke="#2a4a6e" stroke-width="1.5"/>
+
+          <!-- PSNR Group -->
+          <text x="160" y="300" fill="#90a4ae" font-size="14" text-anchor="middle" font-weight="700">PSNR (dB)</text>
+          <!-- Teacher bar -->
+          <rect x="110" y="42" width="45" height="238" rx="4" fill="url(#teacherGrad)" opacity="0.9"/>
+          <text x="132" y="35" fill="#42a5f5" font-size="16" text-anchor="middle" font-weight="800">25.23</text>
+          <!-- Student bar -->
+          <rect x="165" y="54" width="45" height="226" rx="4" fill="url(#studentGrad)" opacity="0.9"/>
+          <text x="187" y="47" fill="#ef5350" font-size="16" text-anchor="middle" font-weight="800">24.00</text>
+
+          <!-- SSIM Group (scaled to chart) -->
+          <text x="320" y="300" fill="#90a4ae" font-size="14" text-anchor="middle" font-weight="700">SSIM</text>
+          <!-- Teacher SSIM 0.862 → scale: 0.862 * 275 = 237 -->
+          <rect x="270" y="43" width="45" height="237" rx="4" fill="url(#teacherGrad)" opacity="0.9"/>
+          <text x="292" y="35" fill="#42a5f5" font-size="16" text-anchor="middle" font-weight="800">0.862</text>
+          <!-- Student SSIM 0.821 → scale: 0.821 * 275 = 226 -->
+          <rect x="325" y="54" width="45" height="226" rx="4" fill="url(#studentGrad)" opacity="0.9"/>
+          <text x="347" y="47" fill="#ef5350" font-size="16" text-anchor="middle" font-weight="800">0.821</text>
+
+          <!-- FPS Group -->
+          <text x="480" y="300" fill="#90a4ae" font-size="14" text-anchor="middle" font-weight="700">FPS ↑</text>
+          <!-- Teacher FPS 5.3 → scale: 5.3/20.5 * 238 = 62 -->
+          <rect x="430" y="218" width="45" height="62" rx="4" fill="url(#teacherGrad)" opacity="0.9"/>
+          <text x="452" y="212" fill="#42a5f5" font-size="16" text-anchor="middle" font-weight="800">5.3</text>
+          <!-- Student FPS 20.5 → scale: 20.5/20.5 * 238 = 238 -->
+          <rect x="485" y="42" width="45" height="238" rx="4" fill="url(#studentGrad)" opacity="0.9"/>
+          <text x="507" y="35" fill="#ef5350" font-size="16" text-anchor="middle" font-weight="800">20.5</text>
+
+          <!-- Legend -->
+          <rect x="180" y="310" width="260" height="22" rx="4" fill="transparent"/>
+          <rect x="195" y="314" width="16" height="12" rx="2" fill="#42a5f5"/>
+          <text x="216" y="324" fill="#bbdefb" font-size="12" font-weight="600">Teacher (154M)</text>
+          <rect x="330" y="314" width="16" height="12" rx="2" fill="#ef5350"/>
+          <text x="351" y="324" fill="#ef9a9a" font-size="12" font-weight="600">Student (24M)</text>
+
+          <!-- Annotation: Higher is Better -->
+          <text x="560" y="300" fill="#546e7a" font-size="10" text-anchor="end" font-style="italic">Higher is Better (PSNR, SSIM, FPS)</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== ROW 4: VISUAL RESULTS COMPARISON ===== -->
+  <div class="row-4">
+    <div class="card">
+      <div class="section-title">
+        <span class="icon">🖼️</span> Visual Results Comparison
+      </div>
+      <div class="visual-comparison" style="display:grid; grid-template-columns:1fr 1fr; gap:0.25in; align-items:start;">
+
+        <!-- Panel 1: Input (Low-Light) -->
+        <div style="text-align:center;">
+          <div style="overflow:hidden; border-radius:0.1in; border:3px solid rgba(255,152,0,0.4); box-shadow: 0 6px 24px rgba(0,0,0,0.5);">
+            <img src="thesis_figures/fig3_side_by_side.png" 
+                 alt="Input low-light image" 
+                 style="width:300%; margin-left:0%; display:block; border-radius:0;">
+          </div>
+          <div style="font-family:'Montserrat',sans-serif; font-weight:800; font-size:0.22in; color:#ff9800; letter-spacing:3px; margin-top:0.12in; text-transform:uppercase;">
+            ⚠️ Input (Low-Light)
+          </div>
+          <div style="font-size:0.13in; color:#78909c; margin-top:0.04in;">Dark, noisy, color-shifted</div>
+        </div>
+
+        <!-- Panel 2: BioNAFNet Enhanced -->
+        <div style="text-align:center;">
+          <div style="overflow:hidden; border-radius:0.1in; border:3px solid rgba(66,165,245,0.5); box-shadow: 0 6px 24px rgba(25,118,210,0.3);">
+            <img src="thesis_figures/fig3_side_by_side.png" 
+                 alt="BioNAFNet enhanced image" 
+                 style="width:300%; margin-left:-100%; display:block; border-radius:0;">
+          </div>
+          <div style="font-family:'Montserrat',sans-serif; font-weight:800; font-size:0.22in; color:#42a5f5; letter-spacing:3px; margin-top:0.12in; text-transform:uppercase;">
+            ✅ BioNAFNet (Ours)
+          </div>
+          <div style="font-size:0.13in; color:#78909c; margin-top:0.04in;">Bright, clear, natural colors</div>
+        </div>
+
+      </div>
+
+      <!-- Compact benefits row -->
+      <div class="benefits-row" style="margin-top:0.15in;">
+        <div class="benefit-item">
+          <div class="benefit-icon">☀️</div>
+          <span>Better Brightness</span>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">🔎</div>
+          <span>Enhanced Details</span>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">🎨</div>
+          <span>Natural Colors</span>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">✨</div>
+          <span>Reduced Noise</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== ROW 5: CONCLUSION + FUTURE WORK ===== -->
+  <div class="row-5">
+    <div class="card card-blue">
+      <div class="section-title">
+        <span class="icon">✅</span> Conclusion
+      </div>
+      <p class="conclusion-text">
+        <strong>BioNAFNet</strong> bridges the quality-speed gap in low-light image enhancement. By integrating
+        <strong>biologically-inspired retinal mechanisms</strong> — including photoreceptor modeling, lateral
+        inhibition, dual scotopic/photopic pathways, and Weber-Fechner perceptual loss — with
+        <strong>knowledge distillation</strong>, it achieves superior generalization and real-time performance.
+      </p>
+      <br>
+      <p class="conclusion-text">
+        The compact <strong>24M-parameter Student model</strong> retains 95% of the Teacher's quality while
+        running at <strong>4× the speed</strong> (20.5 vs 5.3 FPS). Combined with the <strong>LOL Image Enhancer</strong>
+        desktop application, this solution is practical, efficient, and ready for real-world deployment.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="section-title">
+        <span class="icon">🚀</span> Future Work
+      </div>
+      <ul class="future-list">
+        <li>
+          <span class="bullet">1</span>
+          Extend to <strong>video enhancement</strong> with temporal consistency
+        </li>
+        <li>
+          <span class="bullet">2</span>
+          <strong>Mobile and embedded</strong> deployment (Android / iOS)
+        </li>
+        <li>
+          <span class="bullet">3</span>
+          Explore <strong>unsupervised / self-supervised</strong> distillation techniques
+        </li>
+        <li>
+          <span class="bullet">4</span>
+          Generalization to <strong>extreme low-light</strong> and underwater conditions
+        </li>
+        <li>
+          <span class="bullet">5</span>
+          Integration with <strong>object detection</strong> for autonomous driving
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <div class="footer">
+    <div class="dept">Department of Software Engineering</div>
+    <div class="uni">Lahore Garrison University, Pakistan</div>
+  </div>
+
+</div>
+
+</body>
+</html>

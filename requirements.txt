@@ -1,0 +1,8 @@
+# Install torch and torchvision first using the PyTorch selector for your hardware.
+torch>=2.4
+torchvision>=0.19
+numpy>=1.24
+Pillow>=10
+scikit-image>=0.20
+tqdm>=4.65
+opencv-python>=4.8
