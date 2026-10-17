@@ -23,3 +23,5 @@ distillation_log.txt
 *.docx
 Thumbs.db
 .DS_Store
+.idea/
+.vscode/
